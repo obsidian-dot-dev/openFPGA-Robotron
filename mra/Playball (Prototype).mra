@@ -33,7 +33,7 @@
 	<rom index="1">
 		<part>7</part>
 		</rom>
-	<rom index="0" md5="85f6cdf35c4b23f468dd4cdf50948b3d" zip="playball.zip">
+	<rom index="0" md5="85f6cdf35c4b23f468dd4cdf50948b3d" zip="playball.zip|robotron.zip">
 		<part crc="7ba8fd71" name="playball.01"/>
 		<part crc="2387c3d4" name="playball.02"/>
 		<part crc="d34cc5fd" name="playball.03"/>
@@ -113,8 +113,8 @@
 00000000000000000000000000000000
 00000000000000000000000000000000
 		</part>
-		<part zip="robotron.zip" crc="e6631c23" name="decoder.4"/>
-		<part zip="robotron.zip" crc="83faf25e" name="decoder.6"/>
+		<part crc="e6631c23" name="decoder.4"/>
+		<part crc="83faf25e" name="decoder.6"/>
 		<part repeat="1024">00</part>
 		<part repeat="1024">00</part>
 		<part crc="7e4fc798" name="speech.ic4"/>

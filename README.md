@@ -16,6 +16,7 @@ This core supports multiple arcade games running on the "later" Rev 1 Williams 6
 * Splat
 * Bubbles
 * Alien Arena
+* Play Ball! (Prototype)
 
 Note that arcade games supported on the earlier Rev 1 board (i.e. Defender), or Rev 2 (Joust 2, etc.) 6809 board are *not* supported by this core.
 
@@ -58,16 +59,17 @@ To generate the `.rom` format binaries used by this core, you must use the MRA f
 ## Known issues and limitations
 
 * High-score saving is not supported.
-* "Play Ball!" is supported by the core, but currently doesn't work in this port.
 
 ## Notes
 
 Note:  Some of these games make excessive use of strobe effects, which may be problematic for individuals with photosensitivity, epilepsy, or other similar conditions.
 
 ## History
+v0.9.1
+* Fixed mra for "Play Ball!", re-added corresponding configs to support it.
 
 v0.9.0
-* Initial Release
+* Initial Release.
 
 ## Attribution
 
