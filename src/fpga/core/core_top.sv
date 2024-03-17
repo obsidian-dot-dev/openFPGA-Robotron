@@ -689,14 +689,14 @@ always @(*) begin
 			begin
 				BTN = { m_start1, m_start2, m_coin1 | m_coin2 };
 				JA  = ~{ 
-						analog_stick_detected ? ((cont1_joy[23:16] > 224 ) | m_fire_a1) : m_fire_a1, 
-						analog_stick_detected ? ((cont1_joy[23:16] < 32)   | m_fire_y1) : m_fire_y1, 
-						analog_stick_detected ? ((cont1_joy[31:24] > 224 ) | m_fire_b1) : m_fire_b1, 
-						analog_stick_detected ? ((cont1_joy[31:24] < 32 )  | m_fire_x1) : m_fire_x1, 
-						analog_stick_detected ? ((cont1_joy[7:0]   > 224)  | m_right1)  : m_right1, 
-						analog_stick_detected ? ((cont1_joy[7:0]   < 32)   | m_left1)   : m_left1, 
-						analog_stick_detected ? ((cont1_joy[15:8]  > 224)  | m_down1)   : m_down1, 
-						analog_stick_detected ? ((cont1_joy[15:8]  < 32)   | m_up1)     : m_up1};
+						analog_stick_detected ? ((cont1_joy[23:16] > 192)  | m_fire_a1) : m_fire_a1, 
+						analog_stick_detected ? ((cont1_joy[23:16] < 64)   | m_fire_y1) : m_fire_y1, 
+						analog_stick_detected ? ((cont1_joy[31:24] > 192)  | m_fire_b1) : m_fire_b1, 
+						analog_stick_detected ? ((cont1_joy[31:24] < 64)   | m_fire_x1) : m_fire_x1, 
+						analog_stick_detected ? ((cont1_joy[7:0]   > 192)  | m_right1)  : m_right1, 
+						analog_stick_detected ? ((cont1_joy[7:0]   < 64)   | m_left1)   : m_left1, 
+						analog_stick_detected ? ((cont1_joy[15:8]  > 192)  | m_down1)   : m_down1, 
+						analog_stick_detected ? ((cont1_joy[15:8]  < 64)   | m_up1)     : m_up1};
 				JB  = JA;
 			end
 		GAME_ID_JOUST:

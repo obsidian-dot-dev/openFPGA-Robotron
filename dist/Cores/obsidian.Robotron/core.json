@@ -7,8 +7,8 @@
             "description": "Williams 6809 HW Rev 1b",
             "author": "obsidian",
             "url": "https://github.com/obsidian-dot-dev/openFPGA-Robotron",
-            "version": "0.9.1",
-            "date_release": "2024-03-09"
+            "version": "0.9.2",
+            "date_release": "2024-03-16"
         },
         "framework": {
             "target_product": "Analogue Pocket",
