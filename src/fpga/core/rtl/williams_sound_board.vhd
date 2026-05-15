@@ -43,6 +43,25 @@ end williams_sound_board;
 
 architecture struct of williams_sound_board is
 
+	component m6800_core
+		port (
+			clk_i    : in  std_logic;
+			rst_ni   : in  std_logic;
+			clk_en_i : in  std_logic;
+			irq_ni   : in  std_logic;
+			nmi_ni   : in  std_logic;
+			halt_ni  : in  std_logic;
+			addr_o   : out std_logic_vector(15 downto 0);
+			data_i   : in  std_logic_vector(7 downto 0);
+			data_o   : out std_logic_vector(7 downto 0);
+			we_o     : out std_logic;
+			re_o     : out std_logic;
+			vma_o    : out std_logic;
+			rw_no    : out std_logic;
+			pc_o     : out std_logic_vector(15 downto 0)
+		);
+	end component;
+
  signal cpu_addr   : std_logic_vector(15 downto 0);
  signal cpu_di     : std_logic_vector( 7 downto 0);
  signal cpu_do     : std_logic_vector( 7 downto 0);
@@ -129,21 +148,22 @@ pia_cb1_i <= '0' when select_sound = "111111" and hand = '1' else '1';
 cpu_irq  <= pia_irqa or pia_irqb;
 
 -- microprocessor 6800
-main_cpu : entity work.cpu68
+main_cpu : m6800_core
 port map(	
-	clk      => clock,      -- E clock input (falling edge)
-	rst      => reset,      -- reset input (active high)
-	rw       => cpu_rw,     -- read not write output
-	vma      => cpu_vma,    -- valid memory address (active high)
-	address  => cpu_addr,   -- address bus output
-	data_in  => cpu_di,     -- data bus input
-	data_out => cpu_do,     -- data bus output
-	hold     => not ce_089, -- hold input (active high) extend bus cycle
-	halt     => '0',        -- halt input (active high) grants DMA
-	irq      => cpu_irq,    -- interrupt request input (active high)
-	nmi      => '0',        -- non maskable interrupt request input (active high)
-	test_alu => open,
-	test_cc  => open
+	clk_i    => clock,
+	rst_ni   => not reset,
+	clk_en_i => ce_089,
+	irq_ni   => not cpu_irq,
+	nmi_ni   => '1',
+	halt_ni  => '1',
+	addr_o   => cpu_addr,
+	data_i   => cpu_di,
+	data_o   => cpu_do,
+	vma_o    => cpu_vma,
+	rw_no    => cpu_rw,
+	re_o     => open,
+	we_o     => open,
+	pc_o     => open
 );
 
 rom_vma   <= rom_cs and cpu_vma;

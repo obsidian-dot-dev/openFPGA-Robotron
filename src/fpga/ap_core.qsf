@@ -750,7 +750,9 @@ set_global_assignment -name VERILOG_FILE core/rtl/nvram.v
 set_global_assignment -name VERILOG_FILE core/rtl/mc6809is.v
 set_global_assignment -name VHDL_FILE core/rtl/gen_ram.vhd
 set_global_assignment -name VHDL_FILE core/rtl/dpram.vhd
-set_global_assignment -name VHDL_FILE core/rtl/cpu68.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/6800/release/rtl/m6800_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/6800/release/rtl/m6800_alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/rtl/6800/release/rtl/m6800_core.sv
 set_global_assignment -name VHDL_FILE core/rtl/CEGen.vhd
 set_global_assignment -name SYSTEMVERILOG_FILE core/core_top.sv
 set_global_assignment -name SYSTEMVERILOG_FILE core/data_unloader.sv
@@ -764,5 +766,5 @@ set_global_assignment -name SDC_FILE core/core_constraints.sdc
 set_global_assignment -name SIGNALTAP_FILE core/stp1.stp
 set_global_assignment -name QIP_FILE core/mf_pllbase.qip
 set_global_assignment -name SIP_FILE core/mf_pllbase.sip
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
